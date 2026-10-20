@@ -1,0 +1,156 @@
+═══════════════════════════════════════════════════════════════
+🚀 FUTURESCOPE WEBSITE - DEPLOYMENT INFORMATION
+═══════════════════════════════════════════════════════════════
+
+GitHub Repository: https://github.com/sarimkarim/futurescope-website.git
+
+═══════════════════════════════════════════════════════════════
+📦 STEP 1: DEPLOY FRONTEND ON VERCEL (3 minutes)
+═══════════════════════════════════════════════════════════════
+
+1. Go to: https://vercel.com
+2. Sign up/Login with GitHub
+3. Click "Add New" → "Project"
+4. Import repository: sarimkarim/futurescope-website
+5. Configure Settings:
+   - Framework Preset: Vite (auto-detected)
+   - Root Directory: frontend ⚠️ IMPORTANT!
+   - Build Command: npm run build
+   - Output Directory: dist
+
+6. Add Environment Variable:
+   - Key: VITE_API_BASE_URL
+   - Value: https://placeholder.railway.app
+   (We'll update this after backend deploys)
+
+7. Click "Deploy"
+8. Wait 2-3 minutes for deployment
+9. ⭐ COPY YOUR VERCEL URL (e.g., https://futurescope-website.vercel.app)
+   You'll need this for Step 2!
+
+═══════════════════════════════════════════════════════════════
+⚙️ STEP 2: DEPLOY BACKEND ON RAILWAY (4 minutes)
+═══════════════════════════════════════════════════════════════
+
+1. Go to: https://railway.app
+2. Click "Login with GitHub"
+3. Click "New Project" → "Deploy from GitHub repo"
+4. Select: sarimkarim/futurescope-website
+
+5. Go to "Variables" tab → Click "New Variable"
+   Add each of these (copy-paste exactly):
+
+   ┌─────────────────────────────────────────────────────────┐
+   │ MONGO_URI = mongodb+srv://demouser04022003_db_user:TBT9A8dMFbmuEAE4@cluster0.wrtbj8l.mongodb.net/ │
+   └─────────────────────────────────────────────────────────┘
+
+   ┌─────────────────────────────────────────────────────────┐
+   │ PORT = 8000                                              │
+   └─────────────────────────────────────────────────────────┘
+
+   ┌─────────────────────────────────────────────────────────┐
+   │ SECRET_KEY = PRD3wX1HV0K2WpmqhSzGgyadrLCYJMQA            │
+   └─────────────────────────────────────────────────────────┘
+
+   ┌─────────────────────────────────────────────────────────┐
+   │ CLOUD_NAME = dkyz88h25                                   │
+   └─────────────────────────────────────────────────────────┘
+
+   ┌─────────────────────────────────────────────────────────┐
+   │ API_KEY = 487511911248298                                │
+   └─────────────────────────────────────────────────────────┘
+
+   ┌─────────────────────────────────────────────────────────┐
+   │ API_SECRET = 75VbQFIREYENdLHZF2rJVHwR1aA                 │
+   └─────────────────────────────────────────────────────────┘
+
+   ┌─────────────────────────────────────────────────────────┐
+   │ FRONTEND_URL = YOUR_VERCEL_URL_FROM_STEP_1              │
+   │ (Replace with your actual Vercel URL from Step 1!)      │
+   └─────────────────────────────────────────────────────────┘
+
+   ┌─────────────────────────────────────────────────────────┐
+   │ NODE_ENV = production                                    │
+   └─────────────────────────────────────────────────────────┘
+
+6. Go to "Settings" tab:
+   - Root Directory: backend
+   - Start Command: npm start
+   - ⚠️ DO NOT set Build Command (leave it empty!)
+     If you see Build Command set to "npm start", DELETE IT!
+
+7. Go to "Settings" → "Domains" → Click "Generate Domain"
+8. Wait 2-3 minutes for deployment
+9. ⭐ COPY YOUR RAILWAY URL (e.g., https://your-app.railway.app)
+   You'll need this for Step 3!
+
+═══════════════════════════════════════════════════════════════
+🔗 STEP 3: CONNECT FRONTEND AND BACKEND (2 minutes)
+═══════════════════════════════════════════════════════════════
+
+1. Update Frontend in Vercel:
+   - Go to Vercel → Your project → "Settings" → "Environment Variables"
+   - Find VITE_API_BASE_URL
+   - Click "Edit"
+   - Change value to your RAILWAY URL from Step 2
+   - Click "Save"
+   - Go to "Deployments" → Click 3 dots on latest → "Redeploy"
+
+2. Update Backend CORS in Railway:
+   - Go to Railway → Your project → "Variables"
+   - Make sure FRONTEND_URL has your VERCEL URL from Step 1
+   - If you need to update it, Railway will auto-redeploy
+
+═══════════════════════════════════════════════════════════════
+✅ STEP 4: TEST YOUR WEBSITE
+═══════════════════════════════════════════════════════════════
+
+Visit your Vercel URL - Your website should be LIVE! 🎉
+
+Try these:
+- Sign up a new user
+- Login
+- Browse jobs
+- Apply for a job
+
+═══════════════════════════════════════════════════════════════
+📋 QUICK COPY-PASTE FOR RAILWAY ENVIRONMENT VARIABLES
+═══════════════════════════════════════════════════════════════
+
+MONGO_URI=mongodb+srv://demouser04022003_db_user:TBT9A8dMFbmuEAE4@cluster0.wrtbj8l.mongodb.net/
+PORT=8000
+SECRET_KEY=PRD3wX1HV0K2WpmqhSzGgyadrLCYJMQA
+CLOUD_NAME=dkyz88h25
+API_KEY=487511911248298
+API_SECRET=75VbQFIREYENdLHZF2rJVHwR1aA
+FRONTEND_URL=https://YOUR_VERCEL_URL_HERE
+NODE_ENV=production
+
+═══════════════════════════════════════════════════════════════
+🔗 YOUR LIVE WEBSITE WILL BE AT:
+═══════════════════════════════════════════════════════════════
+
+Frontend: https://futurescope-website.vercel.app (or your Vercel URL)
+Backend: https://your-app.railway.app (your Railway URL)
+
+═══════════════════════════════════════════════════════════════
+🆘 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════
+
+If frontend can't connect to backend:
+- Check VITE_API_BASE_URL in Vercel matches Railway URL exactly
+- Make sure Railway deployment is successful (green checkmark)
+- Check Railway logs: Project → Deployments → View logs
+
+If backend can't connect to MongoDB:
+- Verify MONGO_URI is correct in Railway
+- Check MongoDB Atlas → Network Access → IP whitelist includes 0.0.0.0/0
+- Check Railway logs for connection errors
+
+If CORS errors:
+- Verify FRONTEND_URL in Railway matches Vercel URL exactly
+- No trailing slashes in URLs
+- Make sure both services are deployed
+
+═══════════════════════════════════════════════════════════════
+

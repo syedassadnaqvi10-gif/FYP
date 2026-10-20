@@ -1,0 +1,46 @@
+═══════════════════════════════════════════════════════════════
+✅ YOUR CODE IS READY! TIME TO DEPLOY (15 minutes)
+═══════════════════════════════════════════════════════════════
+
+✅ Code pushed to GitHub: https://github.com/sarimkarim/futurescope-website.git
+✅ All configurations ready
+✅ Environment variables prepared
+
+═══════════════════════════════════════════════════════════════
+📋 QUICK 3-STEP DEPLOYMENT
+═══════════════════════════════════════════════════════════════
+
+STEP 1: Deploy Frontend (Vercel) - 3 minutes
+─────────────────────────────────────────────────────────────
+👉 Open: https://vercel.com
+👉 Import: sarimkarim/futurescope-website
+👉 Root Directory: frontend
+👉 Add env: VITE_API_BASE_URL = https://placeholder.railway.app
+👉 Deploy → Copy your Vercel URL
+
+STEP 2: Deploy Backend (Railway) - 4 minutes
+─────────────────────────────────────────────────────────────
+👉 Open: https://railway.app
+👉 Import: sarimkarim/futurescope-website
+👉 Add environment variables (see DEPLOYMENT_INFO.txt)
+👉 Root Directory: backend
+👉 Generate domain → Copy your Railway URL
+
+STEP 3: Connect Them - 2 minutes
+─────────────────────────────────────────────────────────────
+👉 Update VITE_API_BASE_URL in Vercel with Railway URL
+👉 Update FRONTEND_URL in Railway with Vercel URL
+👉 Redeploy both
+
+═══════════════════════════════════════════════════════════════
+📄 DETAILED INSTRUCTIONS
+═══════════════════════════════════════════════════════════════
+
+Open DEPLOYMENT_INFO.txt for complete step-by-step guide
+with all environment variables ready to copy-paste!
+
+═══════════════════════════════════════════════════════════════
+
+
+
+

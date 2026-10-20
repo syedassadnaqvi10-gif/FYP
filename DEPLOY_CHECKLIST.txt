@@ -1,0 +1,95 @@
+═══════════════════════════════════════════════════════════════
+🚀 DEPLOYMENT CHECKLIST - Follow in Order
+═══════════════════════════════════════════════════════════════
+
+✅ STEP 1: Push Code to GitHub (2 minutes)
+─────────────────────────────────────────────────────────────
+1. Go to: https://github.com
+2. Click "+" → "New repository"
+3. Name: futurescope-website
+4. Make it PUBLIC
+5. Click "Create repository"
+6. Copy the repository URL
+
+Then run these commands in PowerShell (in your project folder):
+   git branch -M main
+   git remote add origin YOUR_GITHUB_REPO_URL
+   git push -u origin main
+
+─────────────────────────────────────────────────────────────
+
+✅ STEP 2: Setup MongoDB Atlas (3 minutes)
+─────────────────────────────────────────────────────────────
+1. Go to: https://www.mongodb.com/cloud/atlas
+2. Sign up → Create FREE cluster (M0)
+3. Create database user (save password!)
+4. Whitelist IP: 0.0.0.0/0 (Allow from anywhere)
+5. Get connection string → Replace <password>
+   SAVE THIS STRING - You'll need it!
+
+─────────────────────────────────────────────────────────────
+
+✅ STEP 3: Deploy Frontend on Vercel (3 minutes)
+─────────────────────────────────────────────────────────────
+1. Go to: https://vercel.com
+2. Sign up with GitHub
+3. "Add New" → "Project"
+4. Import your repository
+5. Settings:
+   - Root Directory: frontend
+   - Framework: Vite (auto-detected)
+6. Environment Variable:
+   - Key: VITE_API_BASE_URL
+   - Value: https://placeholder.railway.app (temporary)
+7. Click "Deploy"
+8. COPY YOUR VERCEL URL (e.g., https://xxx.vercel.app)
+
+─────────────────────────────────────────────────────────────
+
+✅ STEP 4: Deploy Backend on Railway (4 minutes)
+─────────────────────────────────────────────────────────────
+1. Go to: https://railway.app
+2. "Login with GitHub"
+3. "New Project" → "Deploy from GitHub repo"
+4. Select your repository
+5. Go to "Variables" tab → Add these:
+
+   MONGO_URI = [Your MongoDB connection string from Step 2]
+   PORT = 8000
+   SECRET_KEY = any_random_string_12345
+   CLOUD_NAME = [Your Cloudinary cloud name]
+   API_KEY = [Your Cloudinary API key]
+   API_SECRET = [Your Cloudinary API secret]
+   FRONTEND_URL = [Your Vercel URL from Step 3]
+   NODE_ENV = production
+
+6. Go to "Settings" tab:
+   - Root Directory: backend
+   - Start Command: npm start
+7. Go to "Settings" → "Domains" → "Generate Domain"
+8. COPY YOUR RAILWAY URL
+
+─────────────────────────────────────────────────────────────
+
+✅ STEP 5: Update Frontend API URL (2 minutes)
+─────────────────────────────────────────────────────────────
+1. Go back to Vercel → Your project
+2. "Settings" → "Environment Variables"
+3. Edit VITE_API_BASE_URL
+4. Change to your Railway URL from Step 4
+5. "Deployments" → Redeploy latest
+
+─────────────────────────────────────────────────────────────
+
+✅ STEP 6: Test Your Website (1 minute)
+─────────────────────────────────────────────────────────────
+Visit your Vercel URL → Your website should be LIVE! 🎉
+
+═══════════════════════════════════════════════════════════════
+📝 YOUR LIVE WEBSITE URL:
+https://your-app-name.vercel.app
+═══════════════════════════════════════════════════════════════
+
+
+
+
